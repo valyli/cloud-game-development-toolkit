@@ -5,22 +5,20 @@ locals {
 
   # IPV4 CIDR blocks that need Jenkins access. For example:
   # "<my personal ip>/32"
-  allowlist = []
+  allowlist = ["0.0.0.0/0"]
 
   # Jenkins and Build Farm Configurations
-  jenkins_agent_secret_arns = []
+  jenkins_agent_secret_arns = ["arn:aws:secretsmanager:us-east-1:976193251564:secret:JenkinsPrivateSSHKey-6LoS6q"]
 
   build_farm_compute = {
-    /* Example Configuration
     graviton_builders : {
-      ami           = "ami-0a1b2c3d4e5f"
+      ami           = "ami-0a0eea208e5ac7db2"
       instance_type = "c7g.large"
     }
     windows_builders : {
-      ami           = "ami-9z8y7x6w5v"
+      ami           = "ami-08c9e8aeffe09ec07"
       instance_type = "c7a.large"
     }
-    */
   }
 
   build_farm_fsx_openzfs_storage = {
